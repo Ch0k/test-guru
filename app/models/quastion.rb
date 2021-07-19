@@ -1,2 +1,0 @@
-class Quastion < ApplicationRecord
-end
