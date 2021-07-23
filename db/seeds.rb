@@ -5,50 +5,48 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Category.create(title: 'frontend')
-Category.create(title: 'backend')
-Category.create(title: 'devops')
-User.create(email: 'sergey@example.com',
-            password: '123456',
-            confirm_password: '123456')
-User.create(email: 'vasya@example.com',
-            password: '123456',
-            confirm_password: '123456')
-User.create(email: 'petya@example.com',
-            password: '123456',
-            confirm_password: '123456')
-Test.create(title: 'html',
-            level: 1,
-            category_id: 1)
-Test.create(title: 'css',
-            level: 1,
-            category_id: 1)
-Test.create(title: 'ruby',
-            level: 2,
-            category_id: 2)
-Test.create(title: 'ansible',
-            level: 2,
-            category_id: 3)
-Question.create(body: 'Что такое тег body',
-                test_id: 1)
-Question.create(body: 'Что такое тег head',
-                test_id: 1)
-Question.create(body: 'Какое css свойсвто меняет размер шрифта',
-                test_id: 2)
-Question.create(body: 'Какое css свойство меняет цвет шрифта',
-                test_id: 2)
-Question.create(body: 'Есть ли в ruby тип данных boolean',
-                test_id: 3)
-Question.create(body: 'Какой метод отдаст последний элемент массива',
-                test_id: 3)
-Question.create(body: 'нужен ли агент на хосте для ansible',
-                test_id: 4)
-Question.create(body: 'файлы какого типа использует ansible',
-                test_id: 4)
+categories = Category.create([{ title: 'frontend' },{ title: 'backend' },{ title: 'devops' }])
+users = User.create([{  email: 'sergey@example.com',
+                        password: '123456',
+                        confirm_password: '123456'},
+                     {  email: 'vasya@example.com',
+                        password: '123456',
+                        confirm_password: '123456'},
+                     {  email: 'petya@example.com',
+                        password: '123456',
+                        confirm_password: '123456'}])
+tests = Test.create([ {  title: 'html',
+                        level: 1,
+                        category_id: categories[0].id},
+                      { title: 'css',
+                        level: 1,
+                        category_id: categories[1].id},
+                      { title: 'ruby',
+                        level: 2,
+                        category_id: categories[2].id},
+                      { title: 'ansible',
+                        level: 2,
+                        category_id: categories[2].id}])
+Question.create([ { body: 'Что такое тег body',
+                    test_id: tests[0].id},
+                  { body: 'Что такое тег head',
+                    test_id: tests[0].id},
+                  { body: 'Какое css свойсвто меняет размер шрифта',
+                    test_id: tests[1].id},
+                  { body: 'Какое css свойство меняет цвет шрифта',
+                    test_id: tests[1].id},
+                  { body: 'Есть ли в ruby тип данных boolean',
+                    test_id: tests[2].id},
+                  { body: 'Какой метод отдаст последний элемент массива',
+                    test_id: tests[2].id},
+                  { body: 'нужен ли агент на хосте для ansible',
+                    test_id: tests[3].id},
+                  { body: 'файлы какого типа использует ansible',
+                    test_id: tests[3].id}])
 
-UserTest.create(user_id: 1, test_id: 1)
-UserTest.create(user_id: 1, test_id: 2)
-UserTest.create(user_id: 2, test_id: 3)
-UserTest.create(user_id: 2, test_id: 4)
-UserTest.create(user_id: 3, test_id: 2)
-UserTest.create(user_id: 3, test_id: 3)
+UserTest.create([ {user_id: users[0].id, test_id: tests[0].id},
+                  {user_id: users[0].id, test_id: tests[1].id},
+                  {user_id: users[1].id, test_id: tests[2].id},
+                  {user_id: users[1].id, test_id: tests[3].id},
+                  {user_id: users[2].id, test_id: tests[1].id},
+                  {user_id: users[2].id, test_id: tests[2].id}])
