@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-categories = Category.create([{ title: 'frontend' },{ title: 'backend' },{ title: 'devops' }])
-users = User.create([{  email: 'sergey@example.com',
+categories = Category.create!([{ title: 'frontend' },{ title: 'backend' },{ title: 'devops' }])
+users = User.create!([{  email: 'sergey@example.com',
                         password: '123456',
                         confirm_password: '123456'},
                      {  email: 'vasya@example.com',
@@ -15,7 +15,7 @@ users = User.create([{  email: 'sergey@example.com',
                      {  email: 'petya@example.com',
                         password: '123456',
                         confirm_password: '123456'}])
-tests = Test.create([ {  title: 'html',
+tests = Test.create!([ {  title: 'html',
                         level: 1,
                         category_id: categories[0].id},
                       { title: 'css',
@@ -27,7 +27,7 @@ tests = Test.create([ {  title: 'html',
                       { title: 'ansible',
                         level: 2,
                         category_id: categories[2].id}])
-Question.create([ { body: 'Что такое тег body',
+Question.create!([ { body: 'Что такое тег body',
                     test_id: tests[0].id},
                   { body: 'Что такое тег head',
                     test_id: tests[0].id},
@@ -44,7 +44,7 @@ Question.create([ { body: 'Что такое тег body',
                   { body: 'файлы какого типа использует ansible',
                     test_id: tests[3].id}])
 
-UserTest.create([ {user_id: users[0].id, test_id: tests[0].id},
+UserTest.create!([ {user_id: users[0].id, test_id: tests[0].id},
                   {user_id: users[0].id, test_id: tests[1].id},
                   {user_id: users[1].id, test_id: tests[2].id},
                   {user_id: users[1].id, test_id: tests[3].id},
