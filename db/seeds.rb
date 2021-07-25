@@ -18,21 +18,21 @@ users = User.create!([{  email: 'sergey@example.com',
 tests = Test.create!([{ title: 'html',
                         level: 1,
                         category_id: categories[0].id,
-                        author: users[0].id
+                        author_id: users[0].id
                      },
                       { title: 'css',
                         level: 1,
                         category_id: categories[1].id,
-                        author: users[0].id
+                        author_id: users[0].id
                      },
                       { title: 'ruby',
                         level: 2,
                         category_id: categories[2].id,
-                        author: users[1].id},
+                        author_id: users[1].id},
                       { title: 'ansible',
                         level: 2,
                         category_id: categories[2].id,
-                        author: users[1].id}])
+                        author_id: users[1].id}])
 Question.create!([ { body: 'Что такое тег body',
                     test_id: tests[0].id},
                   { body: 'Что такое тег head',

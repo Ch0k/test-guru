@@ -3,7 +3,7 @@ class Test < ApplicationRecord
   has_many :users, through: :user_tests
   belongs_to :category
   has_many :questions
-  belongs_to :author, class_name: "User", foreign_key: "author"
+  belongs_to :author, class_name: "User", foreign_key: "author_id"
 
   def self.list_category(category)
     Test.joins('JOIN categories ON tests.category_id = categories.id').where('categories.title = ? ', category).order(title: :desc).pluck(:title)
