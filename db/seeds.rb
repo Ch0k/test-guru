@@ -15,18 +15,28 @@ users = User.create!([{  email: 'sergey@example.com',
                      {  email: 'petya@example.com',
                         password: '123456',
                         confirm_password: '123456'}])
-tests = Test.create!([ {  title: 'html',
+tests = Test.create!([{ title: 'html',
                         level: 1,
-                        category_id: categories[0].id},
+                        category_id: categories[0].id,
+                        author_id: users[0].id
+                     },
                       { title: 'css',
                         level: 1,
-                        category_id: categories[1].id},
+                        category_id: categories[1].id,
+                        author_id: users[0].id
+                     },
                       { title: 'ruby',
                         level: 2,
-                        category_id: categories[2].id},
+                        category_id: categories[2].id,
+                        author_id: users[1].id},
                       { title: 'ansible',
                         level: 2,
+<<<<<<< HEAD
                         category_id: categories[2].id}])
+=======
+                        category_id: categories[2].id,
+                        author_id: users[1].id}])
+>>>>>>> 23f389ac091212897ca0dd3d3e10e99c404a5feb
 Question.create!([ { body: 'Что такое тег body',
                     test_id: tests[0].id},
                   { body: 'Что такое тег head',
