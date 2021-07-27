@@ -31,13 +31,9 @@ tests = Test.create!([{ title: 'html',
                         author_id: users[1].id},
                       { title: 'ansible',
                         level: 2,
-<<<<<<< HEAD
-                        category_id: categories[2].id}])
-=======
                         category_id: categories[2].id,
                         author_id: users[1].id}])
->>>>>>> 23f389ac091212897ca0dd3d3e10e99c404a5feb
-Question.create!([ { body: 'Что такое тег body',
+questions = Question.create!([ { body: 'Что такое тег body',
                     test_id: tests[0].id},
                   { body: 'Что такое тег head',
                     test_id: tests[0].id},
@@ -60,3 +56,70 @@ UserTest.create!([ {user_id: users[0].id, test_id: tests[0].id},
                   {user_id: users[1].id, test_id: tests[3].id},
                   {user_id: users[2].id, test_id: tests[1].id},
                   {user_id: users[2].id, test_id: tests[2].id}])
+Answer.create!([ { answer: 'Элемент <body> предназначен для хранения содержания веб-страницы (контента), отображаемого в окне браузера.',
+                  question_id: questions[0].id,
+                  correct: true
+                },
+                { answer: 'Тег <body> предназначен для хранения других элементов, цель которых — помочь браузеру в работе с данными. Также внутри контейнера <head> находятся метатеги, которые используются для хранения информации предназначенной для браузеров и поисковых систем.',
+                  question_id: questions[0].id,
+                  correct: false
+                },
+                { answer: 'Элемент <head> предназначен для хранения содержания веб-страницы (контента), отображаемого в окне браузера.',
+                  question_id: questions[1].id,
+                  correct: false
+                },
+                { answer: 'Тег <head> предназначен для хранения других элементов, цель которых — помочь браузеру в работе с данными. Также внутри контейнера <head> находятся метатеги, которые используются для хранения информации предназначенной для браузеров и поисковых систем.',
+                  question_id: questions[1].id,
+                  correct: true
+                },
+                { answer: 'font-size',
+                question_id: questions[2].id,
+                correct: true
+              },
+              { answer: 'size',
+                question_id: questions[2].id,
+                correct: false
+              },
+                { answer: 'color',
+                  question_id: questions[3].id,
+                  correct: true
+                },
+                { answer: 'font-color',
+                  question_id: questions[3].id,
+                  correct: false
+                },
+                { answer: 'Да',
+                  question_id: questions[4].id,
+                  correct: false
+                },
+                { answer: 'нет',
+                  question_id: questions[4].id,
+                  correct: true
+                },
+                { answer: 'last',
+                  question_id: questions[5].id,
+                  correct: true
+                }, 
+                { answer: 'first',
+                  question_id: questions[5].id,
+                  correct: false
+                },  
+                { answer: 'da',
+                question_id: questions[6].id,
+                correct: false
+              }, 
+              { answer: 'no',
+                question_id: questions[6].id,
+                correct: true
+              },  
+              { answer: 'yml',
+                question_id: questions[7].id,
+                correct: true
+              },  
+              { answer: 'conf',
+                question_id: questions[7].id,
+                correct: false
+              }])                
+                          
+               
+                                
