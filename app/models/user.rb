@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   
   def test_level(level)
-    self.tests.where('tests.level = ?', level).where('user_tests.user_id = ?', self.id).pluck(:title)
+    tests.where(level: level).where('user_tests.user_id = ?', self.id).pluck(:title)
   end
   
 end
