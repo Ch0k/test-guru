@@ -18,7 +18,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(question_params)
+    @test = Test.find(params[:test_id])
+    question = @test.questions.create(question_params)
+    #question = Question.create(question_params)
     respond_to do |format|
       if question.save
         #render plain: question.inspect
