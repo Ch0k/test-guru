@@ -1,9 +1,11 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show edit update destroy ]
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-  
+
   def index
-    render inline: '<% Question.all.each do |question| %> <br> <%= question.body %> <% end %>'
+    @questions = Question.all
+    @test = Test.find(params[:test_id])
+    render inline: '<% @questions.where(test_id: @test).each do |question| %> <br> <%= question.body %> <% end %>'
   end
 
   def show
@@ -11,15 +13,26 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @test_id = Test.find(params[:test_id])
+    @test = @test_id.id
   end
 
   def create
     question = Question.create(question_params)
-    render plain: question.inspect
+    respond_to do |format|
+      if question.save
+        #render plain: question.inspect
+        format.html { redirect_to test_questions_url, notice: 'Question was successfully created.' }
+        format.json { render :show, status: :created, location: @question }
+      else
+        format.html { render :new }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
-    @order.destroy
+    @question.destroy
   end
 
   private
