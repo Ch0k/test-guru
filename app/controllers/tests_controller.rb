@@ -7,7 +7,6 @@ class TestsController < ApplicationController
 
   def show
     @questions = @test.questions
-    @test_id = @test.id
   end
 
   def new

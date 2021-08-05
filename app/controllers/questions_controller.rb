@@ -17,9 +17,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = @test.questions.new(question_params)
-    #question = Question.create(question_params)
       if @question.save
-        #render plain: question.inspect
         redirect_to test_url(@test), notice: 'Question was successfully created.'
       else
         render :new
@@ -28,7 +26,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_url(@question.test.id), notice: 'Question was successfully delete.'
+    redirect_to test_url(@question.test), notice: 'Question was successfully delete.'
   end
   
   def edit
@@ -36,17 +34,13 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_url(@question.test.id), notice: 'Question was successfully updated.'
+      redirect_to test_url(@question.test), notice: 'Question was successfully updated.'
     else
       render :edit
     end
   end
 
   private
-
-  #def set_test_id
-  #  @test_id = @question.test.id
-  #end
 
   def set_question
     @question = Question.find(params[:id])

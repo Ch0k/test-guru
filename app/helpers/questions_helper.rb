@@ -1,6 +1,9 @@
 module QuestionsHelper
   def question_header
-    "Create new #{@test.title} question" if @question.new_record?
-    "Edit new #{@question.test.title} question" if @question.persisted?
+    if @question.new_record? 
+      "Create new #{@test.title} question" 
+    else 
+      "Edit new #{@question.test.title} question"
+    end
   end
 end
