@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show edit update destroy ]
   before_action :set_test,  only: %i[ index create new]
-  before_action :set_test_id,  only: %i[ destroy edit update]
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
@@ -14,11 +13,9 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    @test_id = @test.id
   end
 
   def create
-    @test = Test.find(params[:test_id])
     @question = @test.questions.new(question_params)
     #question = Question.create(question_params)
       if @question.save
@@ -31,16 +28,15 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_url(@test_id), notice: 'Question was successfully delete.'
+    redirect_to test_url(@question.test.id), notice: 'Question was successfully delete.'
   end
   
   def edit
-    @test = @question.test
   end
 
   def update
     if @question.update(question_params)
-      redirect_to test_url(@test_id), notice: 'Question was successfully updated.'
+      redirect_to test_url(@question.test.id), notice: 'Question was successfully updated.'
     else
       render :edit
     end
@@ -48,9 +44,9 @@ class QuestionsController < ApplicationController
 
   private
 
-  def set_test_id
-    @test_id = @question.test.id
-  end
+  #def set_test_id
+  #  @test_id = @question.test.id
+  #end
 
   def set_question
     @question = Question.find(params[:id])

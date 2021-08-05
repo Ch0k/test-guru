@@ -10,7 +10,7 @@ class Test < ApplicationRecord
   scope :easy, -> {where(level: 0..1)}
   scope :normal, -> {where(level: 2..4)}
   scope :hard, -> {where(level: 5..Float::INFINITY)}
-  scope :list_category,-> (category) {joins('JOIN categories ON tests.category_id = categories.id').where('categories.title = ? ', category)}
+  scope :list_category,-> (category) {joins('JOIN categories ON tests.category_id = categories.id')
   
   def self.list_category_order_title(category)
     Test.list_category(category).where('categories.title = ? ', category).order(title: :desc).pluck(:title)
