@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  root 'questions#index'
+  root 'tests#index'
   resources :tests do
-    resources :questions, shallow: true
+    member do
+      post :start
+    end
+    resources :questions, shallow: true, except: :index do
+      resources :answers, shallow: true
+    end
+  end
+  resources :user_tests, only: %i[show update] do
+    member do
+      get :result
+    end
   end
 end
