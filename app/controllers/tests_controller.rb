@@ -45,7 +45,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests complited?
+    redirect_to tests
   end
 
   private

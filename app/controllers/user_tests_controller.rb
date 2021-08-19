@@ -2,8 +2,6 @@ class UserTestsController < ApplicationController
   before_action :set_user_test, only: %i[ show update result ]
 
   def show
-    @question = @user_test.test.questions
-    #@answers = @question.answers 
   end
 
   def update

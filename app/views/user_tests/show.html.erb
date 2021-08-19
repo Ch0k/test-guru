@@ -1,8 +1,6 @@
 <div>
   <h3>Вопрос номер 
-  <%= unless @user_test.complited?
-    @user_test.question_number
-  end %>
+  <%= @user_test.question_number %>
    из 
    <%= @user_test.test.questions.count %>
   <h3><%= @user_test.current_question.body %></h3>

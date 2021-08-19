@@ -6,7 +6,6 @@ class AnswersController < ApplicationController
   end
 
   def new
-    #@answer = Answer.new
     @answer = @question.answers.new
   end
 

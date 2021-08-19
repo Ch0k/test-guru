@@ -4,11 +4,22 @@ class UserTest < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
   before_validation :before_validation_set_first_question, on: :create
   before_validation :after_update_set_next_question, on: :update
+  
+  GOOD_RESULT_PROCENT = 85
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
     save!
+  end
+
+  def passed? 
+    success_rate >= GOOD_RESULT_PROCENT
+  end
+
+  def success_rate
+    (@user_test.correct_questions_multiply_by_100)/@user_test.test_questions_count
   end
 
   def after_update_set_next_question
