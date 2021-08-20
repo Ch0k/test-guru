@@ -1,0 +1,12 @@
+<h1> <%=  @question.test.title %> Question </h1>
+
+<p> <%= @question.body %> </p>
+
+<h1> Answers </h1>
+
+<%= link_to 'New Answer', new_question_answer_path(@question) %>
+<ol>
+  <%= render @question.answers %>
+</ol>
+
+<%= link_to 'Back', test_path(@question.test) %>

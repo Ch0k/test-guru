@@ -1,0 +1,14 @@
+<%= @user_test.test.title %> завершен
+<%= @user_test.correct_questions %> правильных ответов.
+
+<p> 
+<% if passed? %>
+"Вы прошли тест!!!
+ваш процент успеха </p>
+<p style="color:green"><%= success_rate %></p>
+<% else %>
+"Вы не прошли тест!!!
+ваш процент успеха
+<p style="color:red"><%= success_rate %></p>
+<% end %> 
+</p>

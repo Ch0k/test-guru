@@ -1,0 +1,14 @@
+<div>
+  <h3>Вопрос номер 
+  <%= @user_test.question_number %>
+   из 
+   <%= @user_test.test.questions.count %>
+  <h3><%= @user_test.current_question.body %></h3>
+
+<%= form_with url: user_test_path(@user_test), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @user_test.current_question.answers, :id, :answer, include_hidden: false do |b| %>
+    <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+    <%= b.label %><br>
+  <% end %>
+  <%= form.submit 'Next' %>
+<% end %>
