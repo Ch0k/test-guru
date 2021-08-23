@@ -1,5 +1,6 @@
 class UserTestsController < ApplicationController
   before_action :set_user_test, only: %i[ show update result ]
+  before_action :authenticate_user!
 
   def show
   end

@@ -5,4 +5,9 @@ module ApplicationHelper
   def year_now
     Time.zone.now.year
   end
+  def flash_message
+    if flash[:alert]
+      content_tag :p, flash[:alert], class: 'flash alert'
+    end
+  end
 end

@@ -1,6 +1,8 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_test, only: %i[start show edit update destroy ]
   before_action :set_user, only: :start
+
 
   def start
     @user.tests.push(@test)
@@ -8,7 +10,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 
   def index
