@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get :signup, to: 'users#new'
   get :login, to: 'sessions#new'
   get :log_out, to: 'sessions#reset'
-  resources :sessions, only: %i[create] 
+  resources :sessions, only: :create 
   resources :users, only: :create
   resources :tests do
     member do
