@@ -15,11 +15,15 @@ class UserTest < ApplicationRecord
   end
 
   def passed? 
-    success_rate >= GOOD_RESULT_PROCENT
+    self.success_rate >= GOOD_RESULT_PROCENT
   end
 
   def success_rate
-    (@user_test.correct_questions_multiply_by_100)/@user_test.test_questions_count
+    (self.correct_questions_multiply_by_100)/self.test_questions_count
+  end
+
+  def correct_questions_multiply_by_100 
+    self.correct_questions*100
   end
 
   def after_update_set_next_question
@@ -30,9 +34,6 @@ class UserTest < ApplicationRecord
     current_question.nil?  
   end
   
-  def correct_questions_multiply_by_100 
-    correct_questions*100
-  end
 
   def test_questions_count
     test.questions.count

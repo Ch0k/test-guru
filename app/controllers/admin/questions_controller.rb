@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
 
   before_action :authenticate_user!
   before_action :set_question, only: %i[ show edit update destroy ]
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
       if @question.save
-        redirect_to test_url(@test), notice: 'Question was successfully created.'
+        redirect_to admin_test_url(@test), notice: 'Question was successfully created.'
       else
         render :new
       end
@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_url(@question.test), notice: 'Question was successfully delete.'
+    redirect_to admin_test_url(@question.test), notice: 'Question was successfully delete.'
   end
   
   def edit
@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_url(@question.test), notice: 'Question was successfully updated.'
+      redirect_to admin_test_url(@question.test), notice: 'Question was successfully updated.'
     else
       render :edit
     end

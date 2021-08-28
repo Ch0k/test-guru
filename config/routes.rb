@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :views
   devise_for :users
   root 'tests#index'
   resources :tests, only: :index do
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :admin do
+    root 'admin/tests#index'
     resources :tests do
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true

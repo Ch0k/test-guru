@@ -1,4 +1,3 @@
 module UserTestsHelper
 
-
 end
