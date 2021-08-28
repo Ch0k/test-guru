@@ -2,7 +2,7 @@
 <%= @user_test.correct_questions %> правильных ответов.
 
 <p> 
-<% if passed? %>
+<% if @user_test.passed? %>
 "Вы прошли тест!!!
 ваш процент успеха </p>
 <p style="color:green"><%= success_rate %></p>
