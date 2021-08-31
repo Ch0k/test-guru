@@ -15,19 +15,19 @@ class UserTest < ApplicationRecord
   end
 
   def passed? 
-    self.success_rate >= GOOD_RESULT_PROCENT
+    success_rate >= GOOD_RESULT_PROCENT
   end
 
   def success_rate
-    (self.correct_questions_multiply_by_100)/self.test_questions_count
+    (correct_questions_multiply_by_100)/test_questions_count
   end
 
   def correct_questions_multiply_by_100 
-    self.correct_questions*100
+    correct_questions*100
   end
 
   def after_update_set_next_question
-    self.current_question = next_question
+    current_question = next_question
   end
 
   def complited?
