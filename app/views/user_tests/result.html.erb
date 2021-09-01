@@ -1,4 +1,4 @@
-<%= @user_test.test.title %> завершен
+<%= t('.header', title: @user_test.test.title) %> завершен
 <%= @user_test.correct_questions %> правильных ответов.
 <p> 
 <% if @user_test.passed? %>
