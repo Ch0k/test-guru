@@ -2,8 +2,8 @@ ru:
   helpers:
     submit:
       test:
-        create: "Create test"
-        update: "Update test"
+        create: "Создать тест"
+        update: "Обновить тест"
     select:
       prompt: "Пожалуйста выбирите"
     label:

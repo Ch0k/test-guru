@@ -1,11 +1,11 @@
-<h2>Tests</h2>
-<%= link_to 'new', new_admin_test_path %>
+<h2><%= t('.header') %></h2>
+<%= link_to t('.new'), new_admin_test_path %>
 <table>
   <tr>
-    <th>Test</th>
-    <th>level</th>
-    <th>Question Count</th>
-    <th colspan="3">Action</th>
+    <th><%= t('tests.index.test') %></th>
+    <th><%= t('tests.index.level') %></th>
+    <th><%= t('tests.index.question') %></th>
+    <th сolspan="3"><%= t('tests.index.action') %></th>
   </tr>
   <%= render @tests %>
 </table>
