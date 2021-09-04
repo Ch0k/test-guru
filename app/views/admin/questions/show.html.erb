@@ -1,8 +1,9 @@
-<h1> <%=  @question.test.title %> Question </h1>
+<h1> Test: <%=  @question.test.title %> </h1>
+<h2>Question: </h2> 
 
 <p> <%= @question.body %> </p>
 
-<h1> Answers </h1>
+<h2> Answers </h2>
 
 <%= link_to 'New Answer', new_admin_question_answer_path(@question) %>
 <ol>
