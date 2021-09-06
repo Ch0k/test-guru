@@ -1,4 +1,6 @@
 ru:
+  global:
+    about: '123'
   helpers:
     submit:
       test:
@@ -66,5 +68,8 @@ ru:
         update: "Тест успешно обновлен"
       destroy:
         destroy: "Тест успешно удален"
+  gist_question_service:
+    gist_params:
+      about: "A question about"
       
         
