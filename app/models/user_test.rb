@@ -27,7 +27,7 @@ class UserTest < ApplicationRecord
   end
 
   def after_update_set_next_question
-    current_question = next_question
+    self.current_question = next_question
   end
 
   def complited?

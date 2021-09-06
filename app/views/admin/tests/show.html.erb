@@ -1,19 +1,19 @@
 <h2><%= t('.test') %> <%= @test.title %><br> 
-<h2><%= t('.level') %> <%= @test.level %> </h2>
+<h3><%= t('.level') %> <%= @test.level %> </h3>
 <%= link_to t('.edit'), edit_admin_test_path(@test) %> |
 <%= link_to t('.back'), admin_tests_path %> <br>
-<%= link_to t('.new'), new_admin_test_question_path(@test.id) %>
 <h3><%= t('.list') %>:</h3>
-<table> 
+<table class="table"> 
   <tr>
-    <th><%= t('.question') %>
+    <th><%= t('.question') %></th>
+    <th colspan = "3"><%= t('tests.index.action') %></th>
   </tr>
 <% @questions.each do |question| %>
   <tr>
-    <td><%= question.body %>
-    <td><%= link_to t('.show'), admin_question_path(question) %>
+    <td><%= question.body %></td>
+    <td><%= link_to t('.show'), admin_question_path(question) %></td>
     <td><%= link_to t('.edit'), edit_admin_question_path(question) %></td>
     <td><%= link_to t('.destroy'), admin_question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-  
 <% end %>
+<%= link_to t('.new'), new_admin_test_question_path(@test.id) %>

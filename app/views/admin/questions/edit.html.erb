@@ -3,7 +3,7 @@
 <%= render 'shared/errors', resource: @question %>
 <p>
   <%= form.label :body %>
-  <%= form.text_field :body, id: :test_title %>
+  <%= form.text_field :body, id: :test_title, class: "form-control" %>
 </p>
 <p><%= form.submit %>
 <% end %>

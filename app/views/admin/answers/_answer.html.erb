@@ -1,6 +1,6 @@
 <li>
-  <%= answer.answer %>
-  <%= link_to 'Show', admin_answer_path(answer) %></td>
-  <%= link_to 'Edit', edit_admin_answer_path(answer) %></td>
-  <%= link_to 'Destroy', admin_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= answer.answer %></td><br>
+  <td><%= link_to 'Show', admin_answer_path(answer) %></td> |
+  <td><%= link_to 'Edit', edit_admin_answer_path(answer) %></td> |
+  <td><%= link_to 'Destroy', admin_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </li>
