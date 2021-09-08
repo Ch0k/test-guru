@@ -9,7 +9,7 @@ class User < ApplicationRecord
           :rememberable, 
           :validatable,
           :confirmable
-  has_one :gist
+  has_many :gist
   has_many :user_tests
   has_many :tests, through: :user_tests
   has_many :author_tests, class_name: "Test", foreign_key: "author_id"

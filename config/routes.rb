@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :views
   devise_for :users
+  resources :gists
   root 'tests#index'
   resources :tests, only: :index do
     member do

@@ -16,15 +16,15 @@ class UserTestsController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@user_test.current_question).call
-    Gist.create(question_id: @user_test.current_question.id, user_id: current_user.id, url: result[:html_url] )
-
-      flash_option = if result.success?
-        {notice: result[:html_url]}
-      else
-        {alert: 'error'}
-      end
-
+    @user = current_user
+    gist_service = GistQuestionService.new(@user_test.current_question)
+    result = gist_service.call
+    if gist_service.success?
+      current_user.gist.create(question_id: @user_test.current_question.id, url: result[:html_url] )
+      flash_option = {notice: result[:html_url]}
+    else
+      flash_option = {alert: 'error'}
+    end
     redirect_to @user_test, flash_option
   end
   
