@@ -16,7 +16,6 @@ class UserTestsController < ApplicationController
   end
 
   def gist
-    @user = current_user
     gist_service = GistQuestionService.new(@user_test.current_question)
     result = gist_service.call
     if gist_service.success?

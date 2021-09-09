@@ -1,6 +1,6 @@
 class GistQuestionService
 
-  GITHUB_TOKEN_GIST = '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'
+  GITHUB_TOKEN_GIST = ENV['GITHUB_TOKEN']
 
   def initialize(question, client: nil)
     @question = question
@@ -14,9 +14,9 @@ class GistQuestionService
   end
 
   def success?
-    @client.last_response
+    (200..299).include? @client.last_response.status
   end
-
+  
   private
 
   def gist_params
