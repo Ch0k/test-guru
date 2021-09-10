@@ -66,5 +66,6 @@ ru:
         update: "Тест успешно обновлен"
       destroy:
         destroy: "Тест успешно удален"
-      
+  gist_question_service:
+    about: "Вопрос из "    
         

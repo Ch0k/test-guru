@@ -10,5 +10,6 @@
     <%= b.check_box id: "answer_ids_#{b.object.id}" %>
     <%= b.label %><br>
   <% end %>
+  <%= link_to "Create Gist", gist_user_test_path(@user_test), method: :post %>
   <%= form.submit 'Next' %>
 <% end %>
