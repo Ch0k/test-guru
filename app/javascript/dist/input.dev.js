@@ -7,12 +7,17 @@ document.addEventListener('turbolinks:load', function () {
   user_password_confirmation.addEventListener('input', check);
 
   function check() {
-    if (user_password.value == user_password_confirmation.value) {
-      document.querySelector('#user_password').classList.add('green-border');
+    if ((user_password.value === "" && user_password_confirmation.value === "") === true) {
+      document.querySelector('#user_password').classList.remove('green-border');
       document.querySelector('#user_password').classList.remove('red-border');
     } else {
-      document.querySelector('#user_password').classList.remove('green-border');
-      document.querySelector('#user_password').classList.add('red-border');
+      if (user_password.value === user_password_confirmation.value) {
+        document.querySelector('#user_password').classList.add('green-border');
+        document.querySelector('#user_password').classList.remove('red-border');
+      } else {
+        document.querySelector('#user_password').classList.remove('green-border');
+        document.querySelector('#user_password').classList.add('red-border');
+      }
     }
   }
 });
