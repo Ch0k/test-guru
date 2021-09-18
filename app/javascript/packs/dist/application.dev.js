@@ -28,3 +28,7 @@ _ujs["default"].start();
 _turbolinks["default"].start();
 
 ActiveStorage.start();
+
+require("sorting");
+
+require("input");
