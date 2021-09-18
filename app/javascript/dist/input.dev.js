@@ -10,14 +10,15 @@ document.addEventListener('turbolinks:load', function () {
     if ((user_password.value === "" && user_password_confirmation.value === "") === true) {
       document.querySelector('#user_password').classList.remove('green-border');
       document.querySelector('#user_password').classList.remove('red-border');
+      return;
+    }
+
+    if (user_password.value === user_password_confirmation.value) {
+      document.querySelector('#user_password').classList.add('green-border');
+      document.querySelector('#user_password').classList.remove('red-border');
     } else {
-      if (user_password.value === user_password_confirmation.value) {
-        document.querySelector('#user_password').classList.add('green-border');
-        document.querySelector('#user_password').classList.remove('red-border');
-      } else {
-        document.querySelector('#user_password').classList.remove('green-border');
-        document.querySelector('#user_password').classList.add('red-border');
-      }
+      document.querySelector('#user_password').classList.remove('green-border');
+      document.querySelector('#user_password').classList.add('red-border');
     }
   }
 });
