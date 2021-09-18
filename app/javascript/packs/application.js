@@ -13,3 +13,5 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+require("form_inline") 
+require("progress_bar") 

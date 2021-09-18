@@ -1,5 +1,5 @@
-<% if resource.errors.present? %>
-  <div>
+<% if resource.present? && resource.errors.any? %>
+  <%= contant_tag :div, class: 'resourse-errors', data: { resourse_id: resourse.id } do %>
     <h2> <%= pluralize(resource.errors.count, 'error') %> detected: </h2>
     <%= t('.header', count: resource.errors.count) %>
     <ul>
@@ -7,5 +7,5 @@
       <li><%= message %></li>
     </ul>
     <% end %>
-  </div>
+  <% end %>
 <% end %>
