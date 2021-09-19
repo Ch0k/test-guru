@@ -59,6 +59,8 @@ ru:
         level: "Уровень"
         question: "Кол-во вопросов"
         action: "Действие"
+      form_inline:
+        submit: "OK"
       test:
         show: "Посмотреть"
         edit: "Редактировать"
