@@ -69,8 +69,8 @@ Rails.application.configure do
     address:              "smtp.gmail.com",
     port:                 587,
     domen:                "nameless-brook-74724.herokuapp.com",
-    user_name:            SMTP['USER_NAME'],
-    password:             SMTP['PASSWORD'],
+    user_name:            ENV['USER_NAME'],
+    password:             ENV['PASSWORD'],
     authentication:       "plain",
     enable_starttls_auto: true }
   # Ignore bad email addresses and do not raise email delivery errors.
