@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :gists
   root 'tests#index'
+  resources :contacts, only: %i[new create]
   resources :tests, only: :index do
     member do
       post :start
