@@ -7,14 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 categories = Category.create!([{ title: 'frontend' },{ title: 'backend' },{ title: 'devops' }])
 users = User.create!([{  email: 'sergey@example.com',
-                        password: '123456',
-                        confirm_password: '123456'},
+                        password: '123456'},
                      {  email: 'vasya@example.com',
-                        password: '123456',
-                        confirm_password: '123456'},
+                        password: '123456'},
                      {  email: 'petya@example.com',
-                        password: '123456',
-                        confirm_password: '123456'}])
+                        password: '123456'}])
 tests = Test.create!([{ title: 'html',
                         level: 1,
                         category_id: categories[0].id,
