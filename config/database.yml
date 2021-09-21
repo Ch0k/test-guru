@@ -14,8 +14,8 @@ development:
   database: test_guru_develop
   encoding: unicode
   host: localhost
-  user: test-guru
-  password: Marshak1512
+  user: <%= ENV['DATABASE_USER']  %> 
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
