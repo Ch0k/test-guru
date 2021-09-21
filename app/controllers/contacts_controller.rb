@@ -11,9 +11,9 @@ class ContactsController < ApplicationController
 
   def create
     contact = Contact.new(contact_params)
-    if @contact.save
+    if contact.save
       Admin.all.each do |admin|
-        ContactMailer.contact_me(@contact, admin).deliver_now
+        ContactMailer.contact_me(contact, admin).deliver_now
       end
       redirect_to root_path, notice: "Contact was successfully created."
     else
