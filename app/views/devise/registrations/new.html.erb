@@ -1,6 +1,5 @@
 <div class="text-center">
   <main class="form-signin">
-    <form>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
       <h1 class="h3 mb-3 fw-normal">Please Sign up</h1>
@@ -25,7 +24,6 @@
     <% end %>
 
       <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
-    </form>
   </main>
 <%= render "devise/shared/links" %>
 </div>

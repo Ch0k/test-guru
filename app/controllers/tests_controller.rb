@@ -4,8 +4,12 @@ class TestsController < ApplicationController
 
 
   def start
-    current_user.tests.push(@test)
-    redirect_to current_user.user_test(@test)
+    if @test.questions.present?
+      current_user.tests.push(@test)
+      redirect_to current_user.user_test(@test)
+    else 
+      redirect_to root_path, notice: "Тест не возможно начать. У теста нет вопросов"
+    end
   end
 
   def index

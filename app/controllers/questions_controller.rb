@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
       if @question.save
-        redirect_to test_url(@test), notice: 'Question was successfully created.'
+        redirect_to tests_url(@test), notice: 'Question was successfully created.'
       else
         render :new
       end
