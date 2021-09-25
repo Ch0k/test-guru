@@ -36,5 +36,3 @@ require("progress_bar");
 require("sorting");
 
 require("input");
-
-require("timer");

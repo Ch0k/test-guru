@@ -1,8 +1,4 @@
 <div>
-	<% if @user_test.test.timer.present?%>
-    Время прохождения теста :<%= @user_test.test.timer %> мин.
-    Осталось времени : <div id="timer"></div>
-  <% end %>
   <h3>Вопрос <%= @user_test.question_number %> из <%= @user_test.test.questions.count %>
   <div class="progress">
     <div class="progress-bar" role="progressbar" style="width: <%= @user_test.question_number %>" aria-valuenow="<%= @user_test.question_number %>" aria-valuemin="0" aria-valuemax="<%= @user_test.test.questions.count %>"></div>

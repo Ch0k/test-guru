@@ -8,10 +8,6 @@ class UserTest < ApplicationRecord
 
   GOOD_RESULT_PROCENT = 85
 
-  #def backend_success_tests
-  #  Test.all.list_category('backend')
-  #end
-
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
@@ -36,33 +32,11 @@ class UserTest < ApplicationRecord
   end
 
   def complited?
-    if current_question.nil? || timer_end?
+    if current_question.nil?
       true
     end
   end
   
-  def timer_end?
-    if self.test.timer.present? && (Time.now - self.created_at) > (self.test.timer * 60)
-      true
-    end 
-  end
-
-  def calc_time_sec
-    if self.test.timer.present?
-      end_time = self.created_at + (self.test.timer * 60)
-      t = Time.at(end_time.to_i - Time.now.to_i)
-      @sec = t.sec
-    end
-  end
-
-  def calc_time_min
-    if self.test.timer.present?
-      end_time = self.created_at + (self.test.timer * 60)
-      t = Time.at(end_time.to_i - Time.now.to_i)
-      @sec = t.min
-    end
-  end
-
   def test_questions_count
     test.questions.count
   end
