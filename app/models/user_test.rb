@@ -8,10 +8,6 @@ class UserTest < ApplicationRecord
 
   GOOD_RESULT_PROCENT = 85
 
-  #def backend_success_tests
-  #  Test.all.list_category('backend')
-  #end
-
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
