@@ -1,7 +1,6 @@
 document.addEventListener('turbolinks:load',function(){
   var question = document.querySelector('.form_question')
   var secId = question.dataset.sec
-  var question = document.querySelector('.form_question')
   var minId = question.dataset.min
   var el = document.getElementById("timer"),
   
@@ -21,5 +20,4 @@ document.addEventListener('turbolinks:load',function(){
   }
 
 countDown();
-console.log(secId)
 })
