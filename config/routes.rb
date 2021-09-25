@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :views
   devise_for :users
   resources :gists
-  resources :badges, only: :index
   root 'tests#index'
   resources :contacts, only: %i[new create]
   resources :tests, only: :index do
@@ -29,6 +28,5 @@ Rails.application.routes.draw do
         resources :answers, shallow: true
       end
     end
-    resources :badges
   end
 end
