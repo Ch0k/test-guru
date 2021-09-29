@@ -9,13 +9,18 @@ class UserTestsController < ApplicationController
     @user_test.accept!(params[:answer_ids])
     if @user_test.complited?
       TestsMailer.complited_test(@user_test).deliver_now
-      current_user.user_test_complited_and_passed
-      current_user.add_badge(@user_test.test.level)
+      if @user_test.passed?
+        current_user.complited_tests.push(@user_test.test)
+      end
+      badge_service = BadgeService.new(@user_test.user, @user_test.test)
+      badge_service.add
       redirect_to result_user_test_path(@user_test)
     else
       render :show
     end
   end
+
+
 
   def gist
     gist_service = GistQuestionService.new(@user_test.current_question)
