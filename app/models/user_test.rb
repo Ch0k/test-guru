@@ -32,9 +32,7 @@ class UserTest < ApplicationRecord
   end
 
   def complited?
-    if current_question.nil? || timer_end?
-      true
-    end
+    current_question.nil? || timer_end?
   end
   
   def timer_end?
