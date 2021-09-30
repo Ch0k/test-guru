@@ -8,10 +8,11 @@ class UserTestsController < ApplicationController
   def update
     @user_test.accept!(params[:answer_ids])
     if @user_test.complited?
+      @user_test.update_attribute(:complited, true)
       TestsMailer.complited_test(@user_test).deliver_now
-      if @user_test.passed?
-        current_user.complited_tests.push(@user_test.test)
-      end
+      #if @user_test.passed?
+        #current_user.complited_tests.push(@user_test.test)
+      #end
       badge_service = BadgeService.new(@user_test.user, @user_test.test)
       badge_service.add
       redirect_to result_user_test_path(@user_test)

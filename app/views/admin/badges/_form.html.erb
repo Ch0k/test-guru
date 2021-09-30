@@ -24,7 +24,13 @@
 
   <p>
     <%= form.label :rule %>
-    <%= form.number_field :rule, id: :badge_rule, class: "form-control" %>
+    <%= form.text_field :rule, id: :badge_rule, class: "form-control" %>
+  </p>
+
+
+  <p>
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :badge_value, class: "form-control" %>
   </p>
 
     <%= form.submit %>
