@@ -1,8 +1,5 @@
 <div>
-  <h3>Вопрос номер 
-  <%= @user_test.question_number %>
-  из 
-  <%= @user_test.test.questions.count %>
+  <h3>Вопрос <%= @user_test.question_number %> из <%= @user_test.test.questions.count %>
   <div class="progress">
     <div class="progress-bar" role="progressbar" style="width: <%= @user_test.question_number %>" aria-valuenow="<%= @user_test.question_number %>" aria-valuemin="0" aria-valuemax="<%= @user_test.test.questions.count %>"></div>
   </div>
