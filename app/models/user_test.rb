@@ -44,7 +44,19 @@ class UserTest < ApplicationRecord
   def calc_time
     if self.test.timer.present?
       end_time = self.created_at + (self.test.timer * 60)
-      t = Time.at(end_time.to_i - Time.now.to_i)
+      Time.at(end_time.to_i - Time.now.to_i)
+    end
+  end
+
+  def calc_time_sec
+    if self.calc_time.present?
+      self.calc_time.sec
+    end
+  end
+
+  def calc_time_min
+    if self.calc_time.present?
+      self.calc_time.min
     end
   end
 

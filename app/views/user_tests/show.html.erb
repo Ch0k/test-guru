@@ -12,7 +12,7 @@
 <%= form_with url: user_test_path(@user_test), 
         local: true,
         class: "form_question",
-        data: { question_id: @user_test.question_number, test_count: @user_test.test.questions.count, sec: @user_test.calc_time.sec, min: @user_test.calc_time.min },
+        data: { question_id: @user_test.question_number, test_count: @user_test.test.questions.count, sec: @user_test.calc_time_sec, min: @user_test.calc_time_min },
         method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_test.current_question.answers, :id, :answer, include_hidden: false do |b| %>
     <%= b.check_box id: "answer_ids_#{b.object.id}" %>
