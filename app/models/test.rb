@@ -13,8 +13,8 @@ class Test < ApplicationRecord
   scope :list_category,-> (category) {joins('JOIN categories ON tests.category_id = categories.id').where('categories.title = ? ', category)}
   scope :list_level, -> (level) {where('level = ? ', level)}
 
-  def self.list_category_order_title(category)
-    Test.list_category(category).order(title: :desc).pluck(:title)
+  def self.list_category_order_id(category)
+    Test.list_category(category).order(title: :desc).pluck(:id)
   end
 
 end

@@ -32,9 +32,7 @@ class UserTest < ApplicationRecord
   end
 
   def complited?
-    if current_question.nil?
-      true
-    end
+    current_question.nil?
   end
   
   def test_questions_count
